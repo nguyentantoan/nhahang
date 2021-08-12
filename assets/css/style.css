@@ -1,0 +1,456 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Open+Sans+Condensed:ital,wght@1,300&display=swap');
+/* Top */
+.top {
+    position: fixed;
+    background-color: transparent;
+    width: 100vw;
+    z-index: 99;
+}
+.top::before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-primary);
+    z-index: -1;
+    transform: translateY(-100%);
+}
+.top.active::before {
+    transform: translateY(0);
+}
+.top .logo-img {
+    width: 100px;
+}
+.top .menu-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all  0.3s ease;
+}
+/* xử lý khi có js */
+.top .menu-bar.active {
+    position: fixed;
+    top: 30px;
+    right: 0;
+    transform: translateX(-190px);
+    z-index: 1;
+}
+.top .menu-bar.active span{
+    background-color: transparent;
+}
+.top .menu-bar.active span::before {
+    transform: rotate(-135deg); /*xoay*/
+}
+.top .menu-bar.active span::after {
+    transform: rotate(125deg);
+}
+.top .menu-bar span {
+    display: block;
+    height: 2px;
+    width: 40px;
+    background-color: var(--color-sub) ;
+    position: relative;
+}
+.top .menu-bar span::before {
+    content: "";
+    height: 100%;
+    width: 100%;
+    display: block;
+    position: absolute;
+    transform: translateY(-10px);
+    background-color: var(--color-sub) ;
+    transition: all linear 0.3s;
+}
+.top .menu-bar span::after {
+    content: "";
+    height: 100%;
+    width: 100%;
+    display: block;
+    position: absolute;
+    transform: translateY(10px);
+    background-color: var(--color-sub) ;
+    transition: all 0.3s ease;
+}
+.menu-items {
+    position: fixed;
+    width: 250px;
+    height: 100vh;
+    background-color: var(--color-primary);
+    right: 0;
+    top: 0;
+    padding: 100px 50px;
+    transform: translateX(100%);
+    position: absolute;
+}
+.menu-items .menu-item {
+    padding: 20px 0;
+}
+.menu-items .menu-item::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    border: 1px dashed var(--color-bg);
+    left: 20px;
+    display: block;
+    margin: 58px 0;
+
+}
+.menu-items.active {
+    transform: translateX(0);
+}
+.menu-items a {
+    color: var(--color-text);
+    line-height: 40px;
+    font-size: 25px;
+}
+
+/* big image */
+.big-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+.big-image::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url(../img/food2.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    z-index: -2;
+    animation: Inout 5s infinite;
+}
+@keyframes Inout {
+    0%,100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+.big-image::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.3;
+    z-index: -2;
+}
+.big-content {
+    max-width: 500px;
+    text-align: center;
+}
+.big-content h2 {
+    font-size: 70px;
+    color: var(--color-text);
+    font-family: 'Dancing Script', cursive;
+}
+.big-content p {
+    font-size: 25px;
+    color: var(--color-text);
+    font-family: bold;
+    margin: 15px 0;
+    font-family: 'Dancing Script', cursive;
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+/* about */
+.about {
+    background-color: var(--color-primary);
+}
+.section-title {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+ 
+}
+.section-title h2 {
+    font-size: 40px;
+    color: var(--color-text);
+    text-transform: uppercase;
+}
+.section-title h2::before {
+    content: attr(data-title);
+    display: block;
+    color: var(--color-sub);
+    font-size: 30px;
+    font-family: 'Dancing Script';  
+}
+.about .about-item h2 {
+    color: var(--color-text);
+    font-size: 35px;
+}
+.about .about-item p {
+    font-size: 18px;
+    margin: 15px 0 30px;
+    color: var(--color-text);
+}
+.about .about-item img {
+    width: 100%;
+    border-radius: 10px;
+}
+.about-item {
+    width: calc(100% / 2 );
+    padding: 15px;
+}
+.about-item__img {
+    position: relative;  
+}
+.about-item__img span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: var(--color-primary);
+    font-family: 'Dancing Script';
+    font-weight: 900;
+    font-size: 30px;
+    transform: translate(-50%, -50%);
+}
+.about-item__img::before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 100px;
+    height: 100px;
+    border: 3px solid var(--color-sub);
+    top: calc(50% - 50px);
+    left: calc(50% - 50px);
+    animation: xoayVong 5s infinite;
+}
+@keyframes xoayVong {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* menu thuc an */
+.menu {
+    background-color: var(--color-bg);
+}
+.menu-title {
+    width: 100%;
+    text-align: center;
+}
+.menu-title .menu-button {
+    background-color: transparent;
+    margin: 10px 12px;
+    border: none;
+    font-size: 20px;
+    color: var(--color-text);
+    cursor: pointer;
+}
+.menu-title .menu-button.active {
+    color: var(--color-sub);
+}
+.menu-title .menu-button:hover {
+    color: var(--color-sub);
+}
+.food-list {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    position: relative;
+} 
+.food-list::before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 15px;
+    bottom: 0;
+    right: 15px;
+    border: 1px dashed var(--color-primary);
+}
+.food-list:hover .food-item p {
+    color: var(--color-sub);
+}
+.food-list:hover .food-price p {
+    color: var(--color-text);
+}
+.food-item {
+    display: flex;
+    align-items: center;
+}
+.food-item img{
+    width: 150px;
+    margin-right: 25px;
+}
+.food-item p {
+    color: var(--color-text);   
+    transition: all 0.3s ease-in;
+    font-size: 20px;
+}   
+.food-price p {
+    color: var(--color-sub);
+    transition: all 0.3s ease-in;
+    font-size: 20px;
+}
+.menu-item-content {
+    display: none;
+}
+.menu-item-content.active {
+    display: flex;
+    flex-wrap: wrap;
+}
+/* phản hồi */
+.feedback {
+    background-color: var(--color-primary);
+}
+.feedback-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.feedback-list__item:hover img  {
+    border: 5px solid var(--color-sub);
+}
+.feedback-list__item {
+    width: calc(100%/3 - 30px);
+    margin: 0 15px; 
+    border: 2px solid var(--color-bg);
+    padding: 15px 15px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px var(--color-bg);
+}
+.feedback-list__item span {
+    color: var(--color-text);
+}
+.feedback-list__item img {
+    width: 170px;
+    height: 210px;
+    border-radius: 50% ;
+    border: 5px solid var(--color-bg);
+    transition: all 0.3s ease;
+}
+.feedback-list__item-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.feedback-list p {
+    color: var(--color-text);
+    font-size: 20px;
+    margin: 20px 0;
+}
+.feedback-list h2 {
+    font-size: 20px;
+    color: var(--color-text);
+}
+.feedback-list__item-star i {
+    color: var(--color-sub);
+}
+
+/* Team */
+.team {
+    background-color: var(--color-bg);
+}
+.team-items {
+    padding: 15px;
+    width: calc(100%/3);
+    position: relative;
+}
+.team-items img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: all 0.5s ease;
+}
+.team-items:hover .team-items-text  {
+    background-color: var(--color-sub);
+    transform: translateY(-50px);
+}
+.team-items:hover img {
+    transform: skewY(2deg);
+}
+.team-items-text {
+    position: absolute;
+    padding: 15px 0;
+    right: 30px;
+    left: 30px;
+    bottom: 0;
+    background-color: var(--color-primary);
+    text-align: center;
+    border-radius: 10px;
+    transform: translateY(50%);
+    transition: all 0.5s ease;
+}
+.team-items-text h2 {
+    color: var(--color-text);
+}
+.team-items-text span {
+    color: var(--color-text);
+}
+/* footer */
+.footer {
+    padding-top: 80px;
+    position: relative;
+}
+.footer-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url("../img/footer.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    top: 0;
+    z-index: -2;
+}
+.footer::before {
+    content: "";
+    position: absolute;
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    opacity: 0.4;
+    z-index: -1;
+}
+.footer-items {
+    text-align: center;
+    width: calc(100% /3);
+}
+.footer-items i {
+    color: #ffffff;
+    font-size: 25px;
+    margin: 12px;
+    cursor: pointer;
+    transition: (--color-sub);
+}
+.footer-items i:hover {
+    color: var(--color-sub);
+
+}
+.footer h2 {
+    color: var(--color-text);
+    font-size: 20px;
+}
+.footer p {
+    color: var(--color-text);
+    margin: 12px 0;
+}
+.footer-coppyright {
+    text-align: center;
+    padding: 50px 0 12px;
+    color: #fff;
+    border-top: 2px solid var(--color-bg);
+    margin-top: 20px;
+}

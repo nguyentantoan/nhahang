@@ -1,0 +1,51 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    outline: none;
+    box-sizing: border-box;
+}
+:root {
+    --color-primary: rgb(28,51,79);
+    --color-sub: #EEA023;
+    --color-text: white;
+    --color-bg: #0C1023;
+}
+html {
+    font-family: Arial, Helvetica, sans-serif;
+  
+}
+.container {
+    margin: auto;
+    max-width: 1200px;
+}
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.justify-content {
+    justify-content: space-between;
+}
+.btn {
+    background-color: transparent;
+    padding: 15px 30px;
+    border: 2px solid var(--color-sub);
+    border-radius: 50px;
+    color: var(--color-sub);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.btn:hover {
+    background-color: var(--color-text);
+}
+.section-padding {
+    padding: 80px 0;
+}
